@@ -1,489 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>KeyBr</title>
-	<script src="js/jquery-3.2.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>KeyBr</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <style>
 
-.Keyboard-frame {
-	fill: #DFD9D9
-}
+    .Keyboard-frame {
+        fill: #DFD9D9
+    }
 
-.KeyboardKey-button {
-	fill: #EFEFEE
-}
+    .KeyboardKey-button {
+        fill: #EFEFEE
+    }
 
-.KeyboardKey-symbol {
-	font-size: 11px;
-	fill: #22211F;
-	cursor: default;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none
-}
-.KeyboardKey--depressed .KeyboardKey-button {
-	fill: #42403E
-}
+    .KeyboardKey-symbol {
+        font-size: 11px;
+        fill: #22211F;
+        cursor: default;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
 
-.KeyboardKey--depressed .KeyboardKey-text,.KeyboardKey--depressed .KeyboardKey-symbol {
-	fill: #FEFFF9
-}
+    .KeyboardKey--depressed .KeyboardKey-button {
+        fill: #42403E
+    }
 
-.Zone--background {
-	fill: #EFEFEE
-}
+    .KeyboardKey--depressed .KeyboardKey-text, .KeyboardKey--depressed .KeyboardKey-symbol {
+        fill: #FEFFF9
+    }
 
+    .Zone--background {
+        fill: #EFEFEE
+    }
+
+    .kw{
+        width: 70%;
+        margin: 0 auto;
+    }
 </style>
 <body>
-	<input  id="in1" type="hidden">
+<input id="in1" type="hidden">
 
-  <div class="KeyboardWrap KeyboardWrap--full">
-   <svg class="Keyboard Keyboard--full" viewbox="0 0 675 250">
-    <rect class="Keyboard-frame" x="0" y="0" width="675" height="250" rx="10" ry="10"></rect>
-    <svg class="Keyboard-layout" x="21" y="21">
-     <defs>
-      <pattern id="key-zone-a" patternunits="userSpaceOnUse" width="10" height="10">
-       <path class="Zone--background" d="M0 0h10v10H0z"></path>
-       <path class="Zone--foreground-a" d="M-1 1l2-2M0 10L10 0M9 11l2-2"></path>
-      </pattern>
-      <pattern id="key-zone-b" patternunits="userSpaceOnUse" width="10" height="10">
-       <path class="Zone--background" d="M10 0H0v10h10z"></path>
-       <path class="Zone foreground-b" d="M11 1L9-1m1 11L0 0m1 11l-2-2"></path>
-      </pattern>
-     </defs>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="0" y="0" data-id="Backquote">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       ~
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       `
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="42" y="0" data-id="Digit1">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       !
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       1
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="84" y="0" data-id="Digit2">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       @
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       2
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="126" y="0" data-id="Digit3">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       #
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       3
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="168" y="0" data-id="Digit4">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       $
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       4
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="210" y="0" data-id="Digit5">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       %
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       5
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="252" y="0" data-id="Digit6">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       ^
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       6
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="294" y="0" data-id="Digit7">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       &amp;
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       7
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="336" y="0" data-id="Digit8">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       *
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       8
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="378" y="0" data-id="Digit9">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       (
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       9
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="420" y="0" data-id="Digit0">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       )
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       0
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="462" y="0" data-id="Minus">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       _
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       -
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="504" y="0" data-id="Equal">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       +
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       =
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="546" y="0" data-id="Backspace">
-      <rect class="KeyboardKey-button" x="0" y="0" width="83" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Backspace
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="42" data-id="Tab">
-      <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Tab
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="65" y="42" data-id="KeyQ">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       Q
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="107" y="42" data-id="KeyW">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       W
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="149" y="42" data-id="KeyE">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       E
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="191" y="42" data-id="KeyR">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       R
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="233" y="42" data-id="KeyT">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       T
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="275" y="42" data-id="KeyY">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       Y
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="317" y="42" data-id="KeyU">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       U
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="359" y="42" data-id="KeyI">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       I
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="401" y="42" data-id="KeyO">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       O
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="443" y="42" data-id="KeyP">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       P
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="485" y="42" data-id="BracketLeft">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       {
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       [
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="527" y="42" data-id="BracketRight">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       }
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       ]
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="569" y="42" data-id="Backslash">
-      <rect class="KeyboardKey-button" x="0" y="0" width="60" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       |
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       \
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="84" data-id="CapsLock">
-      <rect class="KeyboardKey-button" x="0" y="0" width="70" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Caps Lock
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="72" y="84" data-id="KeyA">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       A
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="114" y="84" data-id="KeyS">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       S
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="156" y="84" data-id="KeyD">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       D
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="198" y="84" data-id="KeyF">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       F
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="240" y="84" data-id="KeyG">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       G
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="282" y="84" data-id="KeyH">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       H
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="324" y="84" data-id="KeyJ">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       J
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="366" y="84" data-id="KeyK">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       K
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="408" y="84" data-id="KeyL">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       L
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="450" y="84" data-id="Semicolon">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       :
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       ;
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="492" y="84" data-id="Quote">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       &quot;
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       '
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="534" y="84" data-id="Enter">
-      <rect class="KeyboardKey-button" x="0" y="0" width="95" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Enter
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="126" data-id="ShiftLeft">
-      <rect class="KeyboardKey-button" x="0" y="0" width="92" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Shift
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="94" y="126" data-id="KeyZ">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       Z
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="136" y="126" data-id="KeyX">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       X
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="178" y="126" data-id="KeyC">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       C
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="220" y="126" data-id="KeyV">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       V
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="262" y="126" data-id="KeyB">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       B
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="304" y="126" data-id="KeyN">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       N
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="346" y="126" data-id="KeyM">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
-       M
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="388" y="126" data-id="Comma">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       &lt;
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       ,
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="430" y="126" data-id="Period">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       &gt;
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       .
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="472" y="126" data-id="Slash">
-      <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
-       ?
-      </text>
-      <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
-       /
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="514" y="126" data-id="ShiftRight">
-      <rect class="KeyboardKey-button" x="0" y="0" width="115" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Shift
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="168" data-id="ControlLeft">
-      <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Ctrl
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="65" y="168" data-id="AltLeft">
-      <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Alt
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-null" x="130" y="168" data-id="Space">
-      <rect class="KeyboardKey-button" x="0" y="0" width="369" height="40"></rect>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="501" y="168" data-id="AltRight">
-      <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Alt
-      </text>
-     </svg>
-     <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="566" y="168" data-id="ControlRight">
-      <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
-      <text class="KeyboardKey-symbol" x="15" y="25">
-       Ctrl
-      </text>
-     </svg>
-    
+<div class="KeyboardWrap KeyboardWrap--full kw">
+    <svg class="Keyboard Keyboard--full" viewbox="0 0 675 250">
+        <rect class="Keyboard-frame" x="0" y="0" width="675" height="250" rx="10" ry="10"></rect>
+        <svg class="Keyboard-layout" x="21" y="21">
+            <defs>
+                <pattern id="key-zone-a" patternunits="userSpaceOnUse" width="10" height="10">
+                    <path class="Zone--background" d="M0 0h10v10H0z"></path>
+                    <path class="Zone--foreground-a" d="M-1 1l2-2M0 10L10 0M9 11l2-2"></path>
+                </pattern>
+                <pattern id="key-zone-b" patternunits="userSpaceOnUse" width="10" height="10">
+                    <path class="Zone--background" d="M10 0H0v10h10z"></path>
+                    <path class="Zone foreground-b" d="M11 1L9-1m1 11L0 0m1 11l-2-2"></path>
+                </pattern>
+            </defs>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="0" y="0" data-id="Backquote">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    ~
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    `
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="42" y="0" data-id="Digit1">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    !
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    1
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="84" y="0" data-id="Digit2">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    @
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    2
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="126" y="0" data-id="Digit3">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    #
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    3
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="168" y="0" data-id="Digit4">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    $
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    4
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="210" y="0" data-id="Digit5">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    %
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    5
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="252" y="0" data-id="Digit6">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    ^
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    6
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="294" y="0" data-id="Digit7">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    &amp;
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    7
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="336" y="0" data-id="Digit8">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    *
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    8
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="378" y="0" data-id="Digit9">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    (
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    9
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="420" y="0" data-id="Digit0">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    )
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    0
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="462" y="0" data-id="Minus">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    _
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    -
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="504" y="0" data-id="Equal">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    +
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    =
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="546" y="0" data-id="Backspace">
+                <rect class="KeyboardKey-button" x="0" y="0" width="83" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Backspace
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="42" data-id="Tab">
+                <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Tab
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="65" y="42" data-id="KeyQ">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    Q
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="107" y="42" data-id="KeyW">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    W
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="149" y="42" data-id="KeyE">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    E
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="191" y="42" data-id="KeyR">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    R
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="233" y="42" data-id="KeyT">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    T
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="275" y="42" data-id="KeyY">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    Y
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="317" y="42" data-id="KeyU">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    U
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="359" y="42" data-id="KeyI">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    I
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="401" y="42" data-id="KeyO">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    O
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="443" y="42" data-id="KeyP">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    P
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="485" y="42" data-id="BracketLeft">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    {
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    [
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="527" y="42" data-id="BracketRight">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    }
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    ]
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="569" y="42" data-id="Backslash">
+                <rect class="KeyboardKey-button" x="0" y="0" width="60" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    |
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    \
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="84" data-id="CapsLock">
+                <rect class="KeyboardKey-button" x="0" y="0" width="70" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Caps Lock
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="72" y="84" data-id="KeyA">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    A
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="114" y="84" data-id="KeyS">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    S
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="156" y="84" data-id="KeyD">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    D
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="198" y="84" data-id="KeyF">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    F
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="240" y="84" data-id="KeyG">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    G
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="282" y="84" data-id="KeyH">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    H
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="324" y="84" data-id="KeyJ">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    J
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="366" y="84" data-id="KeyK">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    K
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="408" y="84" data-id="KeyL">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    L
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="450" y="84" data-id="Semicolon">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    :
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    ;
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="492" y="84" data-id="Quote">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    &quot;
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    '
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="534" y="84" data-id="Enter">
+                <rect class="KeyboardKey-button" x="0" y="0" width="95" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Enter
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="126" data-id="ShiftLeft">
+                <rect class="KeyboardKey-button" x="0" y="0" width="92" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Shift
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z1" x="94" y="126" data-id="KeyZ">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    Z
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z2" x="136" y="126" data-id="KeyX">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    X
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z3" x="178" y="126" data-id="KeyC">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    C
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="220" y="126" data-id="KeyV">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    V
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z4" x="262" y="126" data-id="KeyB">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    B
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="304" y="126" data-id="KeyN">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    N
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z5" x="346" y="126" data-id="KeyM">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--primary" x="15" y="25">
+                    M
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z6" x="388" y="126" data-id="Comma">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    &lt;
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    ,
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z7" x="430" y="126" data-id="Period">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    &gt;
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    .
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-z8" x="472" y="126" data-id="Slash">
+                <rect class="KeyboardKey-button" x="0" y="0" width="40" height="40"></rect>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="15">
+                    ?
+                </text>
+                <text class="KeyboardKey-symbol KeyboardKey-symbol--secondary" x="10" y="30">
+                    /
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="514" y="126" data-id="ShiftRight">
+                <rect class="KeyboardKey-button" x="0" y="0" width="115" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Shift
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="0" y="168" data-id="ControlLeft">
+                <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Ctrl
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="65" y="168" data-id="AltLeft">
+                <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Alt
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--simple KeyboardKey--zone-null" x="130" y="168" data-id="Space">
+                <rect class="KeyboardKey-button" x="0" y="0" width="369" height="40"></rect>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="501" y="168" data-id="AltRight">
+                <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Alt
+                </text>
+            </svg>
+            <svg class="KeyboardKey KeyboardKey--special KeyboardKey--zone-null" x="566" y="168" data-id="ControlRight">
+                <rect class="KeyboardKey-button" x="0" y="0" width="63" height="40"></rect>
+                <text class="KeyboardKey-symbol" x="15" y="25">
+                    Ctrl
+                </text>
+            </svg>
+
+        </svg>
+        <!--  <svg class="KeyboardZones" x="0" y="0">
+          <svg x="41" y="41">
+           <circle cx="72" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z1"></circle>
+           <circle cx="114" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z2"></circle>
+           <circle cx="156" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z3"></circle>
+           <circle cx="198" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z4"></circle>
+           <circle cx="324" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z5"></circle>
+           <circle cx="366" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z6"></circle>
+           <circle cx="408" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z7"></circle>
+           <circle cx="450" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z8"></circle>
+          </svg>
+          <img class="HandsIllustration" x="10" y="10" width="656" height="271" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/res/image/hands_above.svg" /> -->
     </svg>
-   <!--  <svg class="KeyboardZones" x="0" y="0">
-     <svg x="41" y="41">
-      <circle cx="72" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z1"></circle>
-      <circle cx="114" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z2"></circle>
-      <circle cx="156" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z3"></circle>
-      <circle cx="198" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z4"></circle>
-      <circle cx="324" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z5"></circle>
-      <circle cx="366" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z6"></circle>
-      <circle cx="408" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z7"></circle>
-      <circle cx="450" cy="84" r="20" class="ZoneMarker ZoneMarker--zone-z8"></circle>
-     </svg>
-     <img class="HandsIllustration" x="10" y="10" width="656" height="271" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/res/image/hands_above.svg" /> -->
     </svg>
-   </svg>
-  </div>
+</div>
 
 </body>
 <script type="text/javascript">
- // $(document).keydown(function(event){
- // alert(event.keyCode);
- // })
+    // $(document).keydown(function(event){
+    // alert(event.keyCode);
+    // })
 </script>
 </html>

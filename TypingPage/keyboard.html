@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .correct {
+            color: #38d8ce;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div class="main"></div>
+<div class="result"></div>
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script>
+
+    var data="abc de";
+    var str="";
+    var temp = new String;
+    var tempElement = [];
+    var index = 0;
+    var correctCount = 0;
+    var errorCount = 0;
+    var flag = true;
+    var start;
+
+    //文章转换
+    for(var i=0;i<data.length;++i){
+        temp += data[i];
+        str +=("<span class='show'>"+data[i]+"</span>");
+    }
+    $(".main").html(str);
+
+    //绑定
+    $(".show").each(function () {
+        tempElement.push($(this));
+    });
+    $(window).keydown(function (event) {
+        if (index < temp.length && ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode == 32))) {
+            if (index == 0) {
+                start = new Date().getTime();
+            }
+            if (event.keyCode + 32 == temp.charCodeAt(index)) {
+                correctCount++;
+                tempElement[index].addClass("correct");
+            }
+            else {
+                errorCount++;
+                tempElement[index].addClass("error");
+            }
+            index = index + 1;
+        }
+    });
+    $(window).keyup(function () {
+        if (flag && index == temp.length) {
+            var time = new Date().getTime() - start;
+            $(".result").html("<p>正确：" + correctCount + " 错误：" + errorCount + "</p><p>用时：" + (time) * 1.0 / 1000 + "秒</p><p>平均速率：" + (time * 1.0 / temp.length / 1000) + "秒/字</p>");
+            flag = false;
+        }
+    })
+</script>
+</body>
+</html>
